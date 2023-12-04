@@ -1,6 +1,6 @@
-body{
+body {
     background-image: url(../AssetsForWeather/pexels_videos_2782\ \(1080p\).gif);
-    
+
     height: 100vh;
     width: 100vw;
     background-repeat: no-repeat;
@@ -9,18 +9,27 @@ body{
     display: flex;
 }
 
-.container{
-    max-width: 90%;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6),rgba(2, 32, 60, 0.85), rgba(10, 31, 50, 0.85) );
+.container {
     
+    max-width: 90%;
+    height: 95%;
+    border-radius: 20px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(2, 32, 60, 0.85), rgba(10, 31, 50, 0.85));
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+
 }
-.center{
+
+.center {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.currentWeatherBox{
+.currentWeatherBox {
     background-image: linear-gradient(rgba(0, 20, 70, 0.8), rgba(56, 68, 98, 0.8));
     border-radius: 20px;
     color: white;
@@ -28,11 +37,20 @@ body{
 
 }
 
-.LabelTxt{
+.inline{
     display: inline;
 }
 
-.currentInfoBox{
+.currentInfoBox {
     color: white;
-   
+
+}
+
+.accordion-item{
+    width: 663px;
+}
+
+.accordion{
+    --bs-accordion-bg: rgb(56, 68, 98, 0.8)
+
 }
