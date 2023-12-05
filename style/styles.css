@@ -29,12 +29,53 @@ body {
     align-items: center;
 }
 
+.magGlass{
+    position: relative;
+    ;
+}
+
+.searchbar{
+    width: 700px;
+    padding-top: 10%;
+    padding-bottom: 10%;
+}
+
+.searchbarElement{
+    position: absolute;
+}
+.searchbar input{
+    background-color: gray;
+    border-radius: 20px;
+    width: 80%;
+    
+}
+
+::placeholder {
+    position: relative;
+    color: white;
+    left: 10%;
+    
+  }
+  
+.star{
+    position: relative;
+    left: 8%;
+}
+
 .currentWeatherBox {
     background-image: linear-gradient(rgba(0, 20, 70, 0.8), rgba(56, 68, 98, 0.8));
     border-radius: 20px;
     color: white;
     text-align: center;
 
+}
+
+.title{
+    font-size: 60px;
+}
+
+#currTemp{
+    font-size: 150px;
 }
 
 .inline{
@@ -46,6 +87,11 @@ body {
 
 }
 
+.icon{
+    width: 32px;
+    height: 32px;
+}
+
 .accordion-item{
     width: 663px;
 }
@@ -53,4 +99,25 @@ body {
 .accordion{
     --bs-accordion-bg: rgb(56, 68, 98, 0.8)
 
+}
+
+.accordion-body{
+    color: white;
+}
+.accordion-button{
+    color: white;
+}
+
+.vr
+{
+  display:inline;
+  height:100%;
+  width:1px;
+  border:1px inset;
+  margin:5px
+}
+
+.rBord{
+    border-right: 5px solid white
+    
 }
