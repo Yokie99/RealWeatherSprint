@@ -7,6 +7,7 @@ body {
     background-position: center;
     background-size: cover;
     display: flex;
+    font-family: 'Josefin Sans', sans-serif;
 }
 
 .container {
@@ -87,11 +88,6 @@ body {
 
 }
 
-.icon{
-    width: 32px;
-    height: 32px;
-}
-
 .accordion-item{
     width: 663px;
 }
@@ -120,4 +116,8 @@ body {
 .rBord{
     border-right: 5px solid white
     
+}
+
+.paddingTop{
+    padding-top: 10%;
 }
