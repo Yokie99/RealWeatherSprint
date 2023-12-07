@@ -11,30 +11,37 @@ let location = document.getElementById("location");
 
 let lat = "37.9577";
 let lon = "-121.2908";
-let units = "imperial"
+let units = "imperial";
+let dataC; 
 
 navigator.geolocation.getCurrentPosition(currentLocationWeather, currentWeather);
 
 async function currentLocationWeather(position) {
     const promise = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=${units}`)
 
+    
     const data = await promise.json();
+    
+    
     console.log("current location enabled")
     console.log(data);
     update(data);
+   
 }
 
 async function currentWeather() {
     const promise = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`)
 
     const data = await promise.json();
-
+    
+    
     console.log(data);
     update(data);
+    return data;
 }
 
 function update(weather) {
-    currTemp.textContent = weather.main.temp;
+    currTemp.textContent = Math.floor(weather.main.temp);
     currDesc.textContent = weather.weather[0].description;
     maxTempCurr.textContent = weather.main.temp_max;
     currWind.textContent = weather.wind.speed;
@@ -43,22 +50,27 @@ function update(weather) {
     location.textContent = weather.name;
 }
 
-// i will need the 0, 8, 16, 24, and 32 point of data for every 5 days without the hours
 async function fiveDayWeather() {
+    
     const promise = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`)
 
-
-
     const data = await promise.json();
+
+    const promise1 = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`)
+
+    const data1 = await promise1.json();
+
+    console.log(data1)
+
     console.log(data);
+    
     console.log("tis is temp max" + data.list[0].main.temp_max)
     console.log(typeof data.list[0].main.temp_max);
 
-    let startTime = data.list[0].dt;
-    let start = 0;
+
 
     let daylist;
-    daylist = dayOfWeek(data);
+    daylist = dayOfWeekArr(data);
     console.log(daylist)
 
     // startTime = (startTime - startTime % 86400) + 86400; //find 12am of current day
@@ -183,7 +195,7 @@ async function fiveDayWeather() {
 
 }
 
-function dayOfWeek(arr){
+function dayOfWeekArr(arr){
     let day = [];
     for (let i = 0; i < arr.list.length; i++) {
         day.push((Math.floor(arr.list[i].dt/86400)+4)%7)
@@ -192,6 +204,9 @@ function dayOfWeek(arr){
     return day;
 }
 
+function dayOfWeek(data){
+    return  ((Math.floor(data.dt/86400)+4)%7);
+}
 function average(array){
     let total = 0;
     for(let i =0; i< array.length; i++){
@@ -201,6 +216,8 @@ function average(array){
     return total
 }
 
-//currentWeather();
+dataC = currentWeather();
+console.log("new data" + dataC);
+
 fiveDayWeather();
 
