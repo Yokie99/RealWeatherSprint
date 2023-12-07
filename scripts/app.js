@@ -50,7 +50,7 @@ async function fiveDayWeather(){
     
 
     const data = await promise.json();
-    console.log(data.list.length);
+    console.log(data);
     console.log("tis is temp max" + data.list[0].main.temp_max)
     console.log(typeof data.list[0].main.temp_max);
 
