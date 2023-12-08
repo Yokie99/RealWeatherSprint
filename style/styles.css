@@ -185,3 +185,9 @@ input{
 .greyTxt{
     color: gray;
 }
+
+.list-name-field {
+    position: relative;
+    
+    text-align: center;
+  }
