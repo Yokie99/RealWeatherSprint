@@ -36,7 +36,7 @@ body {
 }
 
 .searchbar{
-    width: 800px;
+    width: 100%;
     padding-top: 5%;
     padding-bottom: 5%;
 }
@@ -68,7 +68,7 @@ input{
 #currIcon{
     position: absolute;
     left: 1%;
-    top: 10%;
+    top: 15%;
     width: 300px;
     height: 300px;
     
@@ -78,6 +78,7 @@ input{
     border-radius: 20px;
     color: white;
     text-align: center;
+    width: 40vw;
 
 }
 
@@ -94,6 +95,8 @@ input{
 }
 
 .currentInfoBox {
+    padding-top: 10%;
+    padding-bottom: 0%;
     color: white;
     font-size: 30px;
 
@@ -101,7 +104,8 @@ input{
 
 .accordBox{
     width: 37vw;
-    height: 75vh;
+    height: 80vh;
+    padding-top: 8%;
 
 }
 .accordion-item{
@@ -120,6 +124,10 @@ input{
     color: white;
 }
 
+.accordion::-webkit-scrollbar {
+    display: none;
+  }
+
 .vr
 {
   display:inline;
@@ -134,10 +142,7 @@ input{
     
 }
 
-.paddingTop{
-    padding-top: 10%;
+.rowHeight{
+    height: 90vh;
 }
 
-.paddingBot{
-    padding-bottom: 10%;
-}

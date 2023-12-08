@@ -18,9 +18,9 @@
 
 <body>
 
-    <div class="container center px-5 border">
-        <div class="row paddingBot">
-            <div class="col border">
+    <div class="container center px-5">
+        <div class="row rowHeight">
+            <div class="col px-5 border-end">
 
                 <div class="searchbar">
                     <input class="searchBarElement p-2" type="text" placeholder="Search for a city" id="search">
@@ -33,55 +33,65 @@
 
                 <div class="currentWeatherBox py-4 px-5">
                     <img id="currIcon" src="https://openweathermap.org/img/wn/10d@2x.png" alt="">
-                    <h1 class="title">Current Weather</h1>
-                    <h2 id="location">NOT Stockton, CA</h2>
-                    <div class="d-flex inline justify-content-center">
+                    <h1 class="title pb-3">Current Weather</h1>
+                    <h2 class="pb-3" id="location">NOT Stockton, CA</h2>
+                    <div class="d-flex inline justify-content-center pb-3">
                         <h1 id="currTemp">62 </h1>
                         <h2 class="">°F</h2>
                         <div class="vr"></div>
                         <h2>°C</h2>
                     </div>
-                    <h2 id="currDesc">Clear Sky</h2>
+                    <h2 class="pb-5" id="currDesc">Clear Sky</h2>
                 </div>
 
-                <div class="currentInfoBox py-5">
+                <div class="currentInfoBox ">
                     <div class="row">
-                        <div class="col">
-                            <p class="inline">Max:</p>
-                            <img class="" src="./AssetsForWeather/maxTemp.png" alt="">
-                            <br>
-                            <p class="inline">Wind:</p>
-                            <img src="./AssetsForWeather/wind.png" alt="">
+                        <div class="col p-0">
+                            <div class="ms-5 ">
+                                <p class="inline">Max:</p>
+                                <img class="" src="./AssetsForWeather/maxTemp.png" alt="">
+                            </div>
+
+                            <div class="ms-5">
+                                <p class="inline">Wind:</p>
+                                <img src="./AssetsForWeather/wind.png" alt="">
+                            </div>
+
                         </div>
-                        <div class="col">
+                        <div class="col p-0">
                             <div>
                                 <div class="vr"></div>
-                                <p class="inline" id="maxTempCurr">62°F</p>
+                                <p class="inline ms-5" id="maxTempCurr">62°F</p>
                             </div>
                             <div>
                                 <div class="vr"></div>
-                                <p class="inline" id="currWind">10m/s</p>
+                                <p class="inline ms-5" id="currWind">10m/s</p>
                             </div>
 
 
                         </div>
-                        <div class="col">
-                            <p class="inline">Min:</p>
-                            <img src="./AssetsForWeather/minTemp.png" alt="">
-                            <br>
-                            <p class="inline">Humidity:</p>
-                            <img src="./AssetsForWeather/humidity.png" alt="">
+                        <div class="col p-0">
+                            <div class="ms-5">
+                                <p class="inline ps-4">Min:</p>
+                                <img src="./AssetsForWeather/minTemp.png" alt="">
+                            </div>
+
+                            <div class="ms-3">
+                                <p class="inline ">Humidity:</p>
+                                <img class="" src="./AssetsForWeather/humidity.png" alt="">
+                            </div>
+
                         </div>
 
-                        <div class="col">
+                        <div class="col p-0">
                             <div>
                                 <div class="vr"></div>
-                                <p class="inline" id="minTempCurr">62°F</p>
+                                <p class="inline ms-5" id="minTempCurr">62°F</p>
                             </div>
 
                             <div>
                                 <div class="vr"></div>
-                                <p class="inline" id="currHumidity">15%</p>
+                                <p class="inline ms-5" id="currHumidity">15%</p>
                             </div>
                         </div>
 
@@ -93,10 +103,10 @@
             </div>
 
 
-            <div class="col border paddingTop accordBox overflow-hidden">
-                <div class="accordion accordion-flush h-100 overflow-auto h-100 overflow-auto" id="accordionExample">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header inline">
+            <div class="col border-start accordBox px-5 overflow-hidden">
+                <div class="accordion accordion-flush h-100 overflow-auto overflow-auto" id="accordionExample">
+                    <div class="accordion-item p-4">
+                        <h2 class="accordion-header inline ">
                             <img class="inline" src="./AssetsForWeather/calendar.png" alt="">
                             <h1 class="inline"> 5 Day Forcast</h1>
                         </h2>
@@ -121,43 +131,49 @@
                                 </button>
                             </h2>
                             <!-- add collaspe back to here  -->
-                            <div id="panelsStayOpen-collapseTwo" class="accordion-collapse show"> 
+                            <div id="panelsStayOpen-collapseTwo" class="accordion-collapse show">
                                 <div class="accordion-body">
                                     <div class="row">
                                         <div class="col">
-                                            <h2 id="day1DateO">Mon</h2>
-                                            <img id="day1IconO" src="https://openweathermap.org/img/wn/10d@2x.png"
-                                                alt="sun">
+                                            <div class="inline d-flex">
+
+                                                <h2 id="day1DateO" class="pt-4">Mon</h2>
+                                                <img id="day1IconO" src="https://openweathermap.org/img/wn/10d@2x.png"
+                                                    alt="sun">
+                                            </div>
+
                                             <div class="d-flex inline">
                                                 <h1 id="day1temp">62</h1>
                                                 <h1> °F</h1>
+                                                <div class="border mx-3"></div>
+                                                <h1> °C</h1>
                                             </div>
 
 
                                             <h2 id="day1Desc">Clear Sky</h2>
                                         </div>
-                                        <div class="col">
-                                            <div class="d-flex inline py-2">
+                                        <div class="col ">
+                                            <div class="d-flex inline justify-content-center py-2">
                                                 <img src="./AssetsForWeather/maxTemp.png" alt="">
-                                                <div class="vr"></div>
+                                                <div class="border mx-3"></div>
                                                 <p class="" id="day1maxTemp">62°F</p>
                                             </div>
 
-                                            <div class="d-flex inline py-2">
+                                            <div class="d-flex inline  justify-content-center py-2">
                                                 <img src="./AssetsForWeather/minTemp.png" alt="">
-                                                <div class="vr"></div>
+                                                <div class="border mx-3"></div>
                                                 <p class="" id="day1minTemp">30°F</p>
                                             </div>
 
-                                            <div class="d-flex inline py-2">
-                                                <img src="./AssetsForWeather/wind.png" alt="">
-                                                <div class="vr"></div>
+                                            <div class="d-flex justify-content-center inline py-2">
+                                                <img src="./AssetsForWeather/windSpeed.svg" alt="">
+                                                <div class="border mx-3"></div>
                                                 <p class="" id="day1Wind">10m/s</p>
                                             </div>
 
-                                            <div class="d-flex inline py-2">
+                                            <div class="d-flex inline justify-content-center py-2">
                                                 <img src="./AssetsForWeather/humidity.png" alt="">
-                                                <div class="vr"></div>
+                                                <div class="border mx-3"></div>
                                                 <p class="" id="day1Humidity">15%</p>
                                             </div>
 
@@ -189,9 +205,52 @@
                         </h2>
                         <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
                             <div class="accordion-body">
-                                <strong>This is the third item's accordion body.</strong> It is hidden by default, until
-                                the collapse plugin adds the appropriate classes that we use to style each nsition does
-                                limit overflow.
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="inline d-flex">
+
+                                            <h2 id="day1DateO" class="pt-4">Mon</h2>
+                                            <img id="day1IconO" src="https://openweathermap.org/img/wn/10d@2x.png"
+                                                alt="sun">
+                                        </div>
+
+                                        <div class="d-flex inline">
+                                            <h1 id="day1temp">62</h1>
+                                            <h1> °F</h1>
+                                            <div class="border mx-3"></div>
+                                            <h1> °C</h1>
+                                        </div>
+
+
+                                        <h2 id="day1Desc">Clear Sky</h2>
+                                    </div>
+                                    <div class="col ">
+                                        <div class="d-flex inline justify-content-center py-2">
+                                            <img src="./AssetsForWeather/maxTemp.png" alt="">
+                                            <div class="border mx-3"></div>
+                                            <p class="" id="day1maxTemp">62°F</p>
+                                        </div>
+
+                                        <div class="d-flex inline  justify-content-center py-2">
+                                            <img src="./AssetsForWeather/minTemp.png" alt="">
+                                            <div class="border mx-3"></div>
+                                            <p class="" id="day1minTemp">30°F</p>
+                                        </div>
+
+                                        <div class="d-flex justify-content-center inline py-2">
+                                            <img src="./AssetsForWeather/windSpeed.svg" alt="">
+                                            <div class="border mx-3"></div>
+                                            <p class="" id="day1Wind">10m/s</p>
+                                        </div>
+
+                                        <div class="d-flex inline justify-content-center py-2">
+                                            <img src="./AssetsForWeather/humidity.png" alt="">
+                                            <div class="border mx-3"></div>
+                                            <p class="" id="day1Humidity">15%</p>
+                                        </div>
+
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -213,10 +272,52 @@
                             </h2>
                             <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse">
                                 <div class="accordion-body">
-                                    <strong>This is the third item's accordion body.</strong> It is hidden by default,
-                                    until
-                                    the collapse plugin adds the appropriate classes that we use to style each element.
-
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="inline d-flex">
+    
+                                                <h2 id="day1DateO" class="pt-4">Mon</h2>
+                                                <img id="day1IconO" src="https://openweathermap.org/img/wn/10d@2x.png"
+                                                    alt="sun">
+                                            </div>
+    
+                                            <div class="d-flex inline">
+                                                <h1 id="day1temp">62</h1>
+                                                <h1> °F</h1>
+                                                <div class="border mx-3"></div>
+                                                <h1> °C</h1>
+                                            </div>
+    
+    
+                                            <h2 id="day1Desc">Clear Sky</h2>
+                                        </div>
+                                        <div class="col ">
+                                            <div class="d-flex inline justify-content-center py-2">
+                                                <img src="./AssetsForWeather/maxTemp.png" alt="">
+                                                <div class="border mx-3"></div>
+                                                <p class="" id="day1maxTemp">62°F</p>
+                                            </div>
+    
+                                            <div class="d-flex inline  justify-content-center py-2">
+                                                <img src="./AssetsForWeather/minTemp.png" alt="">
+                                                <div class="border mx-3"></div>
+                                                <p class="" id="day1minTemp">30°F</p>
+                                            </div>
+    
+                                            <div class="d-flex justify-content-center inline py-2">
+                                                <img src="./AssetsForWeather/windSpeed.svg" alt="">
+                                                <div class="border mx-3"></div>
+                                                <p class="" id="day1Wind">10m/s</p>
+                                            </div>
+    
+                                            <div class="d-flex inline justify-content-center py-2">
+                                                <img src="./AssetsForWeather/humidity.png" alt="">
+                                                <div class="border mx-3"></div>
+                                                <p class="" id="day1Humidity">15%</p>
+                                            </div>
+    
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -239,16 +340,52 @@
                                 </h2>
                                 <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse">
                                     <div class="accordion-body">
-                                        <strong>This is the third item's accordion body.</strong> It is hidden by
-                                        default, until
-                                        the collapse plugin adds the appropriate classes that we use to style each
-                                        element.
-                                        These classes control the overall appearance, as well as the showing and hiding
-                                        via CSS
-                                        transitions. You can modify any of this with custom CSS or overriding our
-                                        default
-                                        variables. It's also worth noting that just about any HTML can go within the
-                                        <code>.accordion-body</code>, though the transition does limit overflow.
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="inline d-flex">
+        
+                                                    <h2 id="day1DateO" class="pt-4">Mon</h2>
+                                                    <img id="day1IconO" src="https://openweathermap.org/img/wn/10d@2x.png"
+                                                        alt="sun">
+                                                </div>
+        
+                                                <div class="d-flex inline">
+                                                    <h1 id="day1temp">62</h1>
+                                                    <h1> °F</h1>
+                                                    <div class="border mx-3"></div>
+                                                    <h1> °C</h1>
+                                                </div>
+        
+        
+                                                <h2 id="day1Desc">Clear Sky</h2>
+                                            </div>
+                                            <div class="col ">
+                                                <div class="d-flex inline justify-content-center py-2">
+                                                    <img src="./AssetsForWeather/maxTemp.png" alt="">
+                                                    <div class="border mx-3"></div>
+                                                    <p class="" id="day1maxTemp">62°F</p>
+                                                </div>
+        
+                                                <div class="d-flex inline  justify-content-center py-2">
+                                                    <img src="./AssetsForWeather/minTemp.png" alt="">
+                                                    <div class="border mx-3"></div>
+                                                    <p class="" id="day1minTemp">30°F</p>
+                                                </div>
+        
+                                                <div class="d-flex justify-content-center inline py-2">
+                                                    <img src="./AssetsForWeather/windSpeed.svg" alt="">
+                                                    <div class="border mx-3"></div>
+                                                    <p class="" id="day1Wind">10m/s</p>
+                                                </div>
+        
+                                                <div class="d-flex inline justify-content-center py-2">
+                                                    <img src="./AssetsForWeather/humidity.png" alt="">
+                                                    <div class="border mx-3"></div>
+                                                    <p class="" id="day1Humidity">15%</p>
+                                                </div>
+        
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -273,16 +410,52 @@
                                     </h2>
                                     <div id="panelsStayOpen-collapseSix" class="accordion-collapse collapse">
                                         <div class="accordion-body">
-                                            <strong>This is the third item's accordion body.</strong> It is hidden by
-                                            default, until
-                                            the collapse plugin adds the appropriate classes that we use to style each
-                                            element.
-                                            These classes control the overall appearance, as well as the showing and
-                                            hiding via CSS
-                                            transitions. You can modify any of this with custom CSS or overriding our
-                                            default
-                                            variables. It's also worth noting that just about any HTML can go within the
-                                            <code>.accordion-body</code>, though the transition does limit overflow.
+                                            <div class="row">
+                                                <div class="col">
+                                                    <div class="inline d-flex">
+            
+                                                        <h2 id="day1DateO" class="pt-4">Mon</h2>
+                                                        <img id="day1IconO" src="https://openweathermap.org/img/wn/10d@2x.png"
+                                                            alt="sun">
+                                                    </div>
+            
+                                                    <div class="d-flex inline">
+                                                        <h1 id="day1temp">62</h1>
+                                                        <h1> °F</h1>
+                                                        <div class="border mx-3"></div>
+                                                        <h1> °C</h1>
+                                                    </div>
+            
+            
+                                                    <h2 id="day1Desc">Clear Sky</h2>
+                                                </div>
+                                                <div class="col ">
+                                                    <div class="d-flex inline justify-content-center py-2">
+                                                        <img src="./AssetsForWeather/maxTemp.png" alt="">
+                                                        <div class="border mx-3"></div>
+                                                        <p class="" id="day1maxTemp">62°F</p>
+                                                    </div>
+            
+                                                    <div class="d-flex inline  justify-content-center py-2">
+                                                        <img src="./AssetsForWeather/minTemp.png" alt="">
+                                                        <div class="border mx-3"></div>
+                                                        <p class="" id="day1minTemp">30°F</p>
+                                                    </div>
+            
+                                                    <div class="d-flex justify-content-center inline py-2">
+                                                        <img src="./AssetsForWeather/windSpeed.svg" alt="">
+                                                        <div class="border mx-3"></div>
+                                                        <p class="" id="day1Wind">10m/s</p>
+                                                    </div>
+            
+                                                    <div class="d-flex inline justify-content-center py-2">
+                                                        <img src="./AssetsForWeather/humidity.png" alt="">
+                                                        <div class="border mx-3"></div>
+                                                        <p class="" id="day1Humidity">15%</p>
+                                                    </div>
+            
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
 
