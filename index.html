@@ -14,6 +14,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Agbalumo&family=Dosis&family=Josefin+Sans&display=swap"
         rel="stylesheet">
+    
 </head>
 
 <body>
@@ -23,9 +24,13 @@
             <div class="col px-5 border-end">
 
                 <div class="searchbar">
-                    <input class="searchBarElement p-2" type="text" placeholder="Search for a city" id="search">
-
+                    <input class="searchBarElement p-2" type="text" placeholder="Search for a city" id="search"> 
                     <img id="favStar" class="star" src="./AssetsForWeather/star_filled.png" alt="unfilled star">
+                </div>
+                <div id="favbar" class="favbarHide">
+                    <h1 style="color: yellow;">Favorites</h1>
+                    
+                    <h2 id="injectHere"></h2>
                 </div>
 
 
@@ -34,12 +39,18 @@
                 <div class="currentWeatherBox py-4 px-5">
                     <img id="currIcon" src="https://openweathermap.org/img/wn/10d@2x.png" alt="">
                     <h1 class="title pb-3">Current Weather</h1>
-                    <h2 class="pb-3" id="location">NOT Stockton, CA</h2>
+                    <div class="pb-3">
+                        <h2 class="inline" id="location">NOT Stockton, CA</h2>
+                        <img id="favToggle" class="inline" src="./AssetsForWeather/star_unfilled.png" alt="star">
+                    </div>
+                        
+                    
+                    
                     <div class="d-flex inline justify-content-center pb-3">
-                        <h1 id="currTemp">62 </h1>
-                        <h2 class="">°F</h2>
+                        <h1 class="" id="currTemp">62 </h1>
+                        <h2 id="priTemp" class=" bigsize">°F</h2>
                         <div class="vr"></div>
-                        <h2>°C</h2>
+                        <h2 class="bigsize greyTxt" id="secTemp" >°C</h2>
                     </div>
                     <h2 class="pb-5" id="currDesc">Clear Sky</h2>
                 </div>
@@ -103,12 +114,12 @@
             </div>
 
 
-            <div class="col border-start accordBox px-5 overflow-hidden">
+            <div class="col  accordBox overflow-hidden">
                 <div class="accordion accordion-flush h-100 overflow-auto overflow-auto" id="accordionExample">
                     <div class="accordion-item p-4">
                         <h2 class="accordion-header inline ">
-                            <img class="inline" src="./AssetsForWeather/calendar.png" alt="">
-                            <h1 class="inline"> 5 Day Forcast</h1>
+                            <img class="inline pb-4" src="./AssetsForWeather/calendar.png" alt="">
+                            <h1 class="inline title"> 5 Day Forcast</h1>
                         </h2>
 
                     </div>
@@ -117,7 +128,7 @@
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
-                                    aria-controls="panelsStayOpen-collapseTwo">
+                                    aria-controls="panelsStayOpen-collapseTwo" id="btn1">
 
                                     <h2 id="day1Date">Mon</h2>
                                     <img class="ps-5" id="day1Icon" src="https://openweathermap.org/img/wn/10d@2x.png"
@@ -138,7 +149,7 @@
                                 </button>
                             </h2>
                             <!-- add collaspe back to here  -->
-                            <div id="panelsStayOpen-collapseTwo" class="accordion-collapse show">
+                            <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
                                 <div class="accordion-body">
                                     <div class="row">
                                         <div class="col">
@@ -197,7 +208,7 @@
                         <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
-                                aria-controls="panelsStayOpen-collapseThree">
+                                aria-controls="panelsStayOpen-collapseThree" id="btn2">
 
 
 
@@ -275,7 +286,7 @@
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false"
-                                    aria-controls="panelsStayOpen-collapseFour">
+                                    aria-controls="panelsStayOpen-collapseFour" id="btn3">
 
                                     <h2 id="day3Date">Wed</h2>
                                     <img class="ps-5" id="day3Icon" src="https://openweathermap.org/img/wn/10d@2x.png"
@@ -352,7 +363,7 @@
                                 <h2 class="accordion-header">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false"
-                                        aria-controls="panelsStayOpen-collapseFive">
+                                        aria-controls="panelsStayOpen-collapseFive" id="btn4">
 
                                         <h2 id="day4Date">Thur</h2>
                                         <img class="ps-5" id="day4Icon"
@@ -428,7 +439,7 @@
                                     <h2 class="accordion-header">
                                         <button class="accordion-button collapsed" type="button"
                                             data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseSix"
-                                            aria-expanded="false" aria-controls="panelsStayOpen-collapseSix">
+                                            aria-expanded="false" aria-controls="panelsStayOpen-collapseSix" id="btn5">
 
                                             <h2 id="day5Date">Fri</h2>
                                             <img class="ps-5" id="day5Icon" src="https://openweathermap.org/img/wn/10d@2x.png"

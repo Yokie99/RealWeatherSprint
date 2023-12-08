@@ -17,7 +17,7 @@ let day1Icon = document.getElementById("day1Icon");
 let day1High = document.getElementById("day1High");
 let day1Low = document.getElementById("day1Low");
 
-let day2date = document.getElementById("day2Date");
+let day2Date = document.getElementById("day2Date");
 let day2Icon = document.getElementById("day2Icon");
 let day2High = document.getElementById("day2High");
 let day2Low = document.getElementById("day2Low");
@@ -52,13 +52,13 @@ let day2Desc = document.getElementById("day2Desc");
 let day2maxTemp = document.getElementById("day2maxTemp");
 let day2minTemp = document.getElementById("day2minTemp");
 let day2Wind = document.getElementById("day2Wind");
-let day22Humidity = document.getElementById("day2Humidity");
+let day2Humidity = document.getElementById("day2Humidity");
 
-let day3DateO = document.getElementById("dayDateO");
+let day3DateO = document.getElementById("day3DateO");
 let day3IconO = document.getElementById("day3IconO");
 let day3Desc = document.getElementById("day3Desc");
 let day3maxTemp = document.getElementById("day3maxTemp");
-let day3minTemp = document.getElementById("Day3minTemp");
+let day3minTemp = document.getElementById("day3minTemp");
 let day3Wind = document.getElementById("day3Wind");
 let day3Humidity = document.getElementById("day3Humidity");
 
@@ -66,7 +66,7 @@ let day4DateO = document.getElementById("day4DateO");
 let day4IconO = document.getElementById("day4IconO");
 let day4Desc = document.getElementById("day4Desc");
 let day4maxTemp = document.getElementById("day4maxTemp");
-let day4minTemp = document.getElementById("ay4minTemp");
+let day4minTemp = document.getElementById("day4minTemp");
 let day4Wind = document.getElementById("day4Wind");
 let day4Humidity = document.getElementById("day4Humidity");
 
@@ -74,15 +74,54 @@ let day5DateO = document.getElementById("day5DateO");
 let day5IconO = document.getElementById("day5IconO");
 let day5Desc = document.getElementById("day5Desc");
 let day5maxTemp = document.getElementById("day5maxTemp");
-let day5minTemp = document.getElementById("Day5minTemp");
+let day5minTemp = document.getElementById("day5minTemp");
 let day5Wind = document.getElementById("day5Wind");
 let day5Humidity = document.getElementById("day5Humidity");
 
+// let btn1 = document.getElementById("btn1");
+// let btn2 = document.getElementById("btn2");
+// let btn3 = document.getElementById("btn3");
+// let btn4 = document.getElementById("btn4");
+// let btn5 = document.getElementById("btn5");
+// let btn1bool = true;
+// let btn2bool = true;
+// let btn3bool = true;
+// let btn4bool = true;
+// let btn5bool = true;
 
+// btn1.addEventListener('keydown', function (event) {
+//     alert();
+//     if (btn1bool) {
+//         btn1.className = "accordion-button collapsed d-none"
+//         btn1bool = false;
+//     }
+//     else {
+//         btn1.className = "accordion-button collapsed"
+//         btn1bool = true;
+//     }
+
+// })
 let lat = "37.9577";
 let lon = "-121.2908";
 let units = "imperial";
-let dataC;
+// let priTemp = document.getElementById("priTemp");
+// let secTemp = document.getElementById("priTemp");
+// priTemp.addEventListener('click', function (event) {
+//         units = "imperical"
+//         currentWeather();
+//         fiveDayWeather();
+
+//         secTemp.className = "greyTxt"
+//     })
+// secTemp.addEventListener('click', function (event) {
+//         units = "metric"
+//         currentWeather();
+//         fiveDayWeather();
+
+//         priTemp.className = "greyTxt"
+//     })
+
+let injectHere = document.getElementById("injectHere");
 
 navigator.geolocation.getCurrentPosition(currentLocationWeather, currentWeather);
 
@@ -96,6 +135,7 @@ async function currentLocationWeather(position) {
     console.log("current location enabled")
     console.log(data);
     update(data);
+    checkFav();
 
 }
 
@@ -107,26 +147,24 @@ async function currentWeather(lat, lon, units) {
 
     console.log(data);
     update(data);
-    return data;
+    checkFav()
 }
 
 function update(weather) {
     currTemp.textContent = Math.floor(weather.main.temp);
     currDesc.textContent = weather.weather[0].description;
-    maxTempCurr.textContent = weather.main.temp_max;
+    maxTempCurr.textContent = Math.floor(weather.main.temp_max);
     currWind.textContent = weather.wind.speed;
-    minTempCurr.textContent = weather.main.temp_min;
+    minTempCurr.textContent = Math.floor(weather.main.temp_min);
     currHumidity.textContent = weather.main.humidity;
     location.textContent = weather.name;
 
     currIcon.src = `https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`;
-    day1Icon.src = `https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`;
-    day1IconO.src = `https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`;
 }
 
 async function fiveDayWeather() {
 
-    const promise = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`)
+    const promise = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`)
 
     const data = await promise.json();
 
@@ -317,14 +355,14 @@ async function fiveDayWeather() {
         day1wind.push(data.list[i].wind.speed);
     }
     console.log("this is day1wind" + day1wind);
-    average(day1wind);
-    console.log("this is average wind1 " + average(day1wind));
+
+    console.log("this is average wind1 " + day1wind);
 
     for (let i = start + 8; i < 16; i++) {
         day2wind.push(data.list[i].wind.speed);
     }
     console.log("this is day2wind" + day2wind);
-    average(day2wind);
+
     console.log("this is average wind2 " + average(day2wind));
 
     for (let i = start + 16; i < 24; i++) {
@@ -337,28 +375,270 @@ async function fiveDayWeather() {
         day5wind.push(data.list[i].wind.speed);
     }
 
+
     console.log("this is average wind3 " + average(day3wind));
 
     console.log("this is average wind4 " + average(day4wind));
 
     console.log("this is average wind5 " + average(day5wind));
 
-    updateFiveDay(data, start);
+    let day1day;
+    let day2day;
+    let day3day;
+    let day4day;
+    let day5day;
+    switch (daylist[start]) {
+        case 0:
+            day1day = "Sun"
+            
+            break;
+        case 1:
+            day1day = "Mon"
+      
+            break;
+        case 2:
+            day1day = "Tue"
+
+            break;
+        case 3:
+            day1day = "Wed"
+
+            break;
+        case 4:
+            day1day = "Thur"
+
+            break;
+        case 5:
+            day1day = "Fri"
+
+            break;
+        case 6:
+            day1day = "Sat"
+     
+            break;
+    }
+    switch (daylist[start + 8]) {
+        case 0:
+
+            day2day = "Sun"
+          
+
+            
+           
+            break;
+        case 1:
+          
+
+            day2day = "Mon"
+
+            break;
+        case 2:
+            
+            day2day = "Tue"
+
+        
+            break;
+        case 3:
+          
+            day2day = "Wed"
+
+          
+            break;
+        case 4:
+           
+            day2day = "Thur"
+
+            
+            break;
+        case 5:
+
+            day2day = "Fri"
+    
+            break;
+        case 6:        
+            day2day = "Sat"
+ 
+     
+            break;
+    }
+    switch (daylist[start+16]) {
+        case 0:
+
+            day3day = "Sun"
+        
+           
+            break;
+        case 1:
+           
+            day3day = "Mon"
+
+            break;
+        case 2:
+
+            day3day = "Tue"
+
+            break;
+        case 3:
+            day3day = "Wed"
+
+            break;
+        case 4:
+            day3day = "Thur"
+            
+            break;
+        case 5:
+            day3day = "Fri"
+            
+            break;
+        case 6:
+            day3day = "Sat"
+     
+            break;
+    }
+    switch (daylist[start+24]) {
+        case 0:
+   
+            day4day = "Sun"
+            
+            break;
+        case 1:
+           
+            day4day = "Mon"
+
+            break;
+        case 2:
+            
+            day4day = "Tue"
+
+            break;
+        case 3:
+            
+            day4day = "Wed"
+
+            break;
+        case 4:
+            day4day = "Thur"
+
+            
+            break;
+        case 5:
+           
+            day4day = "Fri"
+            
+            break;
+        case 6:
+
+            day4day = "Sat"
+     
+            break;
+    }
+    switch (daylist[39]) {
+        case 0:
+            
+            day5day = "Sun"
+           
+            break;
+        case 1:
+           
+            day5day = "Mon"
+            break;
+        case 2:
+           
+            day5day = "Tue"
+            break;
+        case 3:
+            
+
+            day5day = "Wed"
+            break;
+        case 4:
+           
+            day5day = "Thur"
+            
+            break;
+        case 5:
+           
+            day5day = "Fri"
+            
+            break;
+        case 6:
+           
+            day5day = "Sat"
+     
+            break;
+    }
+    
+    updateFiveDay(data, start, day1max, day1min, day1wind, day1humidity, day2max, day2min, day2wind, day2humidity, day3max, day3min, day3wind, day3humidity, day4max, day4min, day4wind, day4humidity, day5max, day5min, day5wind, day5humidity, day1day, day1DateO, day1Date, day2day, day2Date, day2DateO, day3day, day3Date, day3DateO, day4day, day4Date, day4DateO, day5day, day5Date, day5DateO);
+    checkFav();
 
 
 }
 
-function updateFiveDay(weather, start, day1max, day1min, day1wind, day1humidity) {
+function updateFiveDay(weather, start, day1max, day1min, day1wind, day1humidity, day2max, day2min, day2wind, day2humidity, day3max, day3min, day3wind, day3humidity, day4max, day4min, day4wind, day4humidity, day5max, day5min, day5wind, day5humidity, day1day, day1DateO, day1Date, day2day, day2Date, day2DateO, day3day, day3Date, day3DateO, day4day, day4Date, day4DateO, day5day, day5Date, day5DateO) {
 
-    // day1DateO.textContent = make listlater;
-    day1IconO.src = `https://openweathermap.org/img/wn/${weather.list[0].weather.icon}@2x.png`;
-    day1Desc.textContent = weather.list[start].weather.description;
-    day1maxTemp.textContent = Math.floor(day1max);
-    day1minTemp.textContent = Math.floor(day1min);
-    day1Wind.textContent = Math.floor(average(day1wind));
-    day1Humidity.textContent = Math.floor(average(day1humidity));
 
-   
+    day1DateO.textContent = day1day;
+    day1IconO.src = `https://openweathermap.org/img/wn/${weather.list[0].weather[0].icon}@2x.png`;
+    day1Desc.textContent = weather.list[start].weather[0].description;
+    day1maxTemp.textContent = `${Math.floor(day1max)}°`;
+    day1minTemp.textContent = `${Math.floor(day1min)}°`;
+    day1Wind.textContent = `${Math.floor(average(day1wind))}/mph`;
+    day1Humidity.textContent = `${Math.floor(average(day1humidity))}%`;
+    day1Date.textContent = day1day 
+    day1Icon.src = `https://openweathermap.org/img/wn/${weather.list[0].weather[0].icon}@2x.png`;
+    day1High.textContent = Math.floor(day1max);
+    day1Low.textContent = Math.floor(day1min);
+
+    day2DateO.textContent = day2day;
+    day2IconO.src = `https://openweathermap.org/img/wn/${weather.list[0].weather[0].icon}@2x.png`;
+    day2Desc.textContent = weather.list[start].weather[0].description;
+    day2maxTemp.textContent = `${Math.floor(day2max)}°`;
+    day2minTemp.textContent = `${Math.floor(day2min)}°`;
+    day2Wind.textContent = `${Math.floor(average(day2wind))}/mph`;
+    day2Humidity.textContent = `${Math.floor(average(day2humidity))}%`;
+    day2Date.textContent = day2day;
+    day2Icon.src = `https://openweathermap.org/img/wn/${weather.list[0].weather[0].icon}@2x.png`;
+    day2High.textContent = Math.floor(day2max);
+    day2Low.textContent = Math.floor(day2min);
+
+    day3DateO.textContent = day3day;
+    day3IconO.src = `https://openweathermap.org/img/wn/${weather.list[0].weather[0].icon}@2x.png`;
+    day3Desc.textContent = weather.list[start].weather[0].description;
+    day3maxTemp.textContent = `${Math.floor(day3max)}°`;
+    day3minTemp.textContent = `${Math.floor(day3min)}°`;
+    day3Wind.textContent = `${Math.floor(average(day3wind))}/mph`;
+    day3Humidity.textContent = `${Math.floor(average(day3humidity))}%`;
+    day3Date.textContent = day3day;
+    day3Icon.src = `https://openweathermap.org/img/wn/${weather.list[0].weather[0].icon}@2x.png`;
+    day3High.textContent = Math.floor(day3max);
+    day3Low.textContent = Math.floor(day3min);
+
+    day4DateO.textContent = day4day;
+    day4IconO.src = `https://openweathermap.org/img/wn/${weather.list[0].weather[0].icon}@2x.png`;
+    day4Desc.textContent = weather.list[start].weather[0].description;
+    day4maxTemp.textContent = `${Math.floor(day4max)}°`;
+    day4minTemp.textContent = `${Math.floor(day4min)}°`;
+    day4Wind.textContent = `${Math.floor(average(day4wind))}/mph`;
+    day4Humidity.textContent = `${Math.floor(average(day4humidity))}%`;
+    day4Date.textContent = day4day;
+    day4Icon.src = `https://openweathermap.org/img/wn/${weather.list[0].weather[0].icon}@2x.png`;
+    day4High.textContent = Math.floor(day4max);
+    day4Low.textContent = Math.floor(day4min);
+
+    console.log(day5day)
+    day5DateO.textContent = day5day;
+    day5IconO.src = `https://openweathermap.org/img/wn/${weather.list[0].weather[0].icon}@2x.png`;
+    day5Desc.textContent = weather.list[start].weather[0].description;
+    day5maxTemp.textContent = `${Math.floor(day5max)}°`;
+    day5minTemp.textContent = `${Math.floor(day5min)}°`;
+    day5Wind.textContent = `${Math.floor(average(day5wind))}/mph`;
+    day5Humidity.textContent = `${Math.floor(average(day5humidity))}%`;
+    day5Date.textContent = day5day;
+    day5Icon.src = `https://openweathermap.org/img/wn/${weather.list[0].weather[0].icon}@2x.png`;
+    day5High.textContent = Math.floor(day5max);
+    day5Low.textContent = Math.floor(day5min);
+
+
 }
 
 search.addEventListener('keydown', function (event) {
@@ -373,11 +653,9 @@ search.addEventListener('keydown', function (event) {
                 lon = data[0].lon;
                 console.log(`this is lat ${lat} and this is lon ${lon}`)
                 currentWeather(lat, lon, units);
+                fiveDayWeather();
             })
     }
-
-
-
 })
 
 
@@ -405,21 +683,93 @@ currentWeather(lat, lon, units);
 fiveDayWeather();
 
 let favStar = document.getElementById("favStar");
+let favbar = document.getElementById("favbar");
+let favStat = false;
 
 favStar.addEventListener('click', function (e) {
+    if (favStat) {
+        favbar.className = "favbarHide"
+        favStat = false;
+    }
+    else {
+        favbar.className = "favbar"
+        favStat = true;
+    }
 
+})
+
+function loadFav(city) {
+    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city},{country code}&limit=1&appid=${apiKey}`)
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            console.log(data);
+            lat = data[0].lat;
+            lon = data[0].lon;
+            console.log(`this is lat ${lat} and this is lon ${lon}`)
+            currentWeather(lat, lon, units);
+            fiveDayWeather();
+        })
+}
+
+function test() {
+    alert();
+}
+
+
+
+let favToggle = document.getElementById("favToggle");
+let toggleStat = true;
+let savedArr = [];
+
+if (localStorage.getItem("saved")) {
+    savedArr = JSON.parse(localStorage.getItem("saved"));
+}
+function checkFav() {
+
+    for (let i = 0; i < savedArr.length; i++) {
+        if (savedArr[i] == location.textContent) {
+            favToggle.src = "./AssetsForWeather/star_filled.png"
+            toggleStat = false;
+        }
+        else {
+            toggleStat = true;
+            favToggle.src = "./AssetsForWeather/star_unfilled.png"
+        }
+    }
+}
+
+
+favToggle.addEventListener('click', function (e) {
+    checkFav();
+    if (toggleStat) {
+        savedArr.push(location.textContent);
+        localStorage.setItem("saved", JSON.stringify(savedArr));
+        favToggle.src = "./AssetsForWeather/star_filled.png";
+        toggleStat = false;
+
+        let h2 = document.createElement("h2");
+        injectHere.appendChild(h2);
+        h2.textContent = location.textContent;
+        h2.addEventListener("click", function () {
+            loadFav(h2.textContent);
+        });
+
+    }
+    else {
+        favToggle.src = "./AssetsForWeather/star_unfilled.png"
+        toggleStat = true;
+        for (let i = 0; i < savedArr.length; i++) {
+            if (savedArr[i] == location.textContent) {
+                savedArr.splice(i, 1);
+                localStorage.setItem("saved", JSON.stringify(savedArr));
+            }
+        }
+
+    }
 
 })
 
 
-//Scroll effect
-// accordionItems.forEach((el) => {
-//     el.addEventListener('shown.bs.collapse', (e) => {
-//         var scrollOffset = acc.scrollTop + el.parentNode.offsetTop
-//         acc.scroll({
-//             top: scrollOffset,
-//             left: 0,
-//             behavior: 'smooth'
-//         })
-//     })
-// })
+
