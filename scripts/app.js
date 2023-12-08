@@ -9,6 +9,10 @@ let currHumidity = document.getElementById("currHumidity");
 let location = document.getElementById("location");
 let search = document.getElementById("search");
 
+let currIcon = document.getElementById("currIcon");
+let day1Icon = document.getElementById("day1Icon");
+let day1IconO = document.getElementById("day1IconO");
+
 
 let lat = "37.9577";
 let lon = "-121.2908";
@@ -49,6 +53,10 @@ function update(weather) {
     minTempCurr.textContent = weather.main.temp_min;
     currHumidity.textContent = weather.main.humidity;
     location.textContent = weather.name;
+
+    currIcon.src = `https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`;
+    day1Icon.src = `https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`;
+    day1IconO.src = `https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`;
 }
 
 async function fiveDayWeather() {
@@ -221,12 +229,6 @@ search.addEventListener('keydown', function (event) {
 })
 
 
-
-
-
-
-
-
 function dayOfWeekArr(arr) {
     let day = [];
     for (let i = 0; i < arr.list.length; i++) {
@@ -250,3 +252,22 @@ function average(array) {
 currentWeather(lat, lon, units);
 fiveDayWeather();
 
+let favStar = document.getElementById("favStar");
+
+favStar.addEventListener('click', function (e) {
+
+
+})
+
+
+//Scroll effect
+accordionItems.forEach((el) => {
+    el.addEventListener('shown.bs.collapse', (e) => {
+        var scrollOffset = acc.scrollTop + el.parentNode.offsetTop
+        acc.scroll({
+            top: scrollOffset,
+            left: 0,
+            behavior: 'smooth'
+        })
+    })
+})

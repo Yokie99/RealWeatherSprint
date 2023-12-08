@@ -19,19 +19,20 @@
 <body>
 
     <div class="container center px-5 border">
-        <div class="row ">
+        <div class="row paddingBot">
             <div class="col border">
-                <div class="row">
-                    <div class="searchbar">
-                        <img class="magGlass" src="./AssetsForWeather/magnify.png" alt="search glass">
 
-                        <input class="searchBarElement p-2" type="text" placeholder="Search" id="search">
-                        <img class="star" src="./AssetsForWeather/star_unfilled.png" alt="unfilled star">
-                    </div>
+                <div class="searchbar">
+                    <input class="searchBarElement p-2" type="text" placeholder="Search for a city" id="search">
 
+                    <img id="favStar" class="star" src="./AssetsForWeather/star_filled.png" alt="unfilled star">
                 </div>
 
+
+
+
                 <div class="currentWeatherBox py-4 px-5">
+                    <img id="currIcon" src="https://openweathermap.org/img/wn/10d@2x.png" alt="">
                     <h1 class="title">Current Weather</h1>
                     <h2 id="location">NOT Stockton, CA</h2>
                     <div class="d-flex inline justify-content-center">
@@ -92,7 +93,7 @@
             </div>
 
 
-            <div class="col border paddingTop">
+            <div class="col border paddingTop accordBox overflow-hidden">
                 <div class="accordion " id="accordionExample">
                     <div class="accordion-item">
                         <h2 class="accordion-header inline">
@@ -109,12 +110,12 @@
                                     aria-controls="panelsStayOpen-collapseTwo">
 
                                     <h2 id="day1Date">Mon</h2>
-                                    <img src="./AssetsForWeather/sun.png" alt="sun">
+                                    <img id="day1Icon" src="https://openweathermap.org/img/wn/10d@2x.png" alt="sun">
                                     <h2>H:</h2>
                                     <h2 id="day1High">60</h2>
                                     <h2>°</h2>
                                     <h2>L:</h2>
-                                    <h2>30</h2>
+                                    <h2 id="day1Low">30</h2>
                                     <h2>°</h2>
 
                                 </button>
@@ -123,34 +124,40 @@
                                 <div class="accordion-body">
                                     <div class="row">
                                         <div class="col">
-                                            <h2 id="">Mon</h2>
-                                            <img src="./AssetsForWeather/sun.png" alt="sun">
-                                            <h1>62°F</h1>
-                                            <h2>Clear Sky</h2>
+                                            <h2 id="day1DateO">Mon</h2>
+                                            <img id="day1IconO" src="https://openweathermap.org/img/wn/10d@2x.png"
+                                                alt="sun">
+                                            <div class="d-flex inline">
+                                                <h1 id="day1temp">62</h1>
+                                                <h1> °F</h1>
+                                            </div>
+
+
+                                            <h2 id="day1Desc">Clear Sky</h2>
                                         </div>
                                         <div class="col">
-                                            <div class="d-flex inline">
+                                            <div class="d-flex inline py-2">
                                                 <img src="./AssetsForWeather/maxTemp.png" alt="">
                                                 <div class="vr"></div>
-                                                <p class="" id="maxTempCurr">62°F</p>
+                                                <p class="" id="day1maxTemp">62°F</p>
                                             </div>
 
-                                            <div class="d-flex inline">
+                                            <div class="d-flex inline py-2">
                                                 <img src="./AssetsForWeather/minTemp.png" alt="">
                                                 <div class="vr"></div>
-                                                <p class="" id="minTempCurr">30°F</p>
+                                                <p class="" id="day1minTemp">30°F</p>
                                             </div>
 
-                                            <div class="d-flex inline">
+                                            <div class="d-flex inline py-2">
                                                 <img src="./AssetsForWeather/wind.png" alt="">
                                                 <div class="vr"></div>
-                                                <p class="" id="wind">10m/s</p>
+                                                <p class="" id="day1Wind">10m/s</p>
                                             </div>
 
-                                            <div class="d-flex inline">
+                                            <div class="d-flex inline py-2">
                                                 <img src="./AssetsForWeather/humidity.png" alt="">
                                                 <div class="vr"></div>
-                                                <p class="" id="humidity">15%</p>
+                                                <p class="" id="day1Humidity">15%</p>
                                             </div>
 
                                         </div>
@@ -167,7 +174,16 @@
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
                                 aria-controls="panelsStayOpen-collapseThree">
-                                Accordion Item #3
+
+                                <h2 id="day2Date">Tues</h2>
+                                <img id="day1Icon" src="https://openweathermap.org/img/wn/10d@2x.png" alt="sun">
+                                <h2>H:</h2>
+                                <h2 id="day2High">60</h2>
+                                <h2>°</h2>
+                                <h2>L:</h2>
+                                <h2 id="day2Low">30</h2>
+                                <h2>°</h2>
+
                             </button>
                         </h2>
                         <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
@@ -183,7 +199,15 @@
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false"
                                     aria-controls="panelsStayOpen-collapseFour">
-                                    Accordion Item #4
+
+                                    <h2 id="day3Date">Wed</h2>
+                                    <img id="day3Icon" src="https://openweathermap.org/img/wn/10d@2x.png" alt="sun">
+                                    <h2>H:</h2>
+                                    <h2 id="day3High">60</h2>
+                                    <h2>°</h2>
+                                    <h2>L:</h2>
+                                    <h2 id="day3Low">30</h2>
+                                    <h2>°</h2>
                                 </button>
                             </h2>
                             <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse">
@@ -201,7 +225,15 @@
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false"
                                         aria-controls="panelsStayOpen-collapseFive">
-                                        Accordion Item #5
+
+                                        <h2 id="day4Date">Thur</h2>
+                                        <img id="day4Icon" src="https://openweathermap.org/img/wn/10d@2x.png" alt="sun">
+                                        <h2>H:</h2>
+                                        <h2 id="day4High">60</h2>
+                                        <h2>°</h2>
+                                        <h2>L:</h2>
+                                        <h2 id="day4Low">30</h2>
+                                        <h2>°</h2>
                                     </button>
                                 </h2>
                                 <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse">
@@ -224,7 +256,18 @@
                                         <button class="accordion-button collapsed" type="button"
                                             data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseSix"
                                             aria-expanded="false" aria-controls="panelsStayOpen-collapseSix">
-                                            Accordion Item #6
+
+                                            <h2 id="day5Date">Fri</h2>
+                                            <img id="day5Icon" src="https://openweathermap.org/img/wn/10d@2x.png"
+                                                alt="sun">
+                                            <h2>H:</h2>
+                                            <h2 id="day5High">60</h2>
+                                            <h2>°</h2>
+                                            <h2>L:</h2>
+                                            <h2 id="day5Low">30</h2>
+                                            <h2>°</h2>
+
+
                                         </button>
                                     </h2>
                                     <div id="panelsStayOpen-collapseSix" class="accordion-collapse collapse">
