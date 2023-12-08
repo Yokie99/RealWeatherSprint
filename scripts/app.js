@@ -10,8 +10,73 @@ let location = document.getElementById("location");
 let search = document.getElementById("search");
 
 let currIcon = document.getElementById("currIcon");
+
+//all the accordian header variables
+let day1Date = document.getElementById("day1Date");
 let day1Icon = document.getElementById("day1Icon");
+let day1High = document.getElementById("day1High");
+let day1Low = document.getElementById("day1Low");
+
+let day2date = document.getElementById("day2Date");
+let day2Icon = document.getElementById("day2Icon");
+let day2High = document.getElementById("day2High");
+let day2Low = document.getElementById("day2Low");
+
+let day3Date = document.getElementById("day3Date");
+let day3Icon = document.getElementById("day1Icon");
+let day3High = document.getElementById("day1High");
+let day3Low = document.getElementById("day1Low");
+
+let day4Date = document.getElementById("day4Date");
+let day4Icon = document.getElementById("day4Icon");
+let day4High = document.getElementById("day4High");
+let day4Low = document.getElementById("day4Low");
+
+let day5Date = document.getElementById("day5Date");
+let day5Icon = document.getElementById("day5Icon");
+let day5High = document.getElementById("day5High");
+let day5Low = document.getElementById("day5Low");
+
+//accordian body variables
+let day1DateO = document.getElementById("day1DateO");
 let day1IconO = document.getElementById("day1IconO");
+let day1Desc = document.getElementById("day1Desc");
+let day1maxTemp = document.getElementById("day1maxTemp");
+let day1minTemp = document.getElementById("day1minTemp");
+let day1Wind = document.getElementById("day1Wind");
+let day1Humidity = document.getElementById("day1Humidity");
+
+let day2DateO = document.getElementById("day2DateO");
+let day2IconO = document.getElementById("day2IconO");
+let day2Desc = document.getElementById("day2Desc");
+let day2maxTemp = document.getElementById("day2maxTemp");
+let day2minTemp = document.getElementById("day2minTemp");
+let day2Wind = document.getElementById("day2Wind");
+let day22Humidity = document.getElementById("day2Humidity");
+
+let day3DateO = document.getElementById("dayDateO");
+let day3IconO = document.getElementById("day3IconO");
+let day3Desc = document.getElementById("day3Desc");
+let day3maxTemp = document.getElementById("day3maxTemp");
+let day3minTemp = document.getElementById("Day3minTemp");
+let day3Wind = document.getElementById("day3Wind");
+let day3Humidity = document.getElementById("day3Humidity");
+
+let day4DateO = document.getElementById("day4DateO");
+let day4IconO = document.getElementById("day4IconO");
+let day4Desc = document.getElementById("day4Desc");
+let day4maxTemp = document.getElementById("day4maxTemp");
+let day4minTemp = document.getElementById("ay4minTemp");
+let day4Wind = document.getElementById("day4Wind");
+let day4Humidity = document.getElementById("day4Humidity");
+
+let day5DateO = document.getElementById("day5DateO");
+let day5IconO = document.getElementById("day5IconO");
+let day5Desc = document.getElementById("day5Desc");
+let day5maxTemp = document.getElementById("day5maxTemp");
+let day5minTemp = document.getElementById("Day5minTemp");
+let day5Wind = document.getElementById("day5Wind");
+let day5Humidity = document.getElementById("day5Humidity");
 
 
 let lat = "37.9577";
