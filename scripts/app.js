@@ -271,7 +271,94 @@ async function fiveDayWeather() {
 
     console.log("this is average temp5 " + average(day5temp));
 
+    let day1humidity = [];
+    let day2humidity = [];
+    let day3humidity = [];
+    let day4humidity = [];
+    let day5humidity = [];
 
+    for (let i = start; i < 8; i++) {
+        day1humidity.push(data.list[i].main.humidity);
+    }
+    console.log("this is day1humidity" + day1humidity);
+    average(day1humidity);
+    console.log("this is average humidity1 " + average(day1humidity));
+
+    for (let i = start + 8; i < 16; i++) {
+        day2humidity.push(data.list[i].main.humidity);
+    }
+    console.log("this is day2humidity" + day2humidity);
+    average(day2humidity);
+    console.log("this is average humidity2 " + average(day2humidity));
+
+    for (let i = start + 16; i < 24; i++) {
+        day3humidity.push(data.list[i].main.humidity);
+    }
+    for (let i = start + 24; i < 32; i++) {
+        day4humidity.push(data.list[i].main.humidity);
+    }
+    for (let i = 31 + start; i < 40; i++) {
+        day5humidity.push(data.list[i].main.humidity);
+    }
+
+    console.log("this is average humidity3 " + average(day3humidity));
+
+    console.log("this is average humidity4 " + average(day4humidity));
+
+    console.log("this is average humidity5 " + average(day5humidity));
+
+    let day1wind = [];
+    let day2wind = [];
+    let day3wind = [];
+    let day4wind = [];
+    let day5wind = [];
+
+    for (let i = start; i < 8; i++) {
+        day1wind.push(data.list[i].wind.speed);
+    }
+    console.log("this is day1wind" + day1wind);
+    average(day1wind);
+    console.log("this is average wind1 " + average(day1wind));
+
+    for (let i = start + 8; i < 16; i++) {
+        day2wind.push(data.list[i].wind.speed);
+    }
+    console.log("this is day2wind" + day2wind);
+    average(day2wind);
+    console.log("this is average wind2 " + average(day2wind));
+
+    for (let i = start + 16; i < 24; i++) {
+        day3wind.push(data.list[i].wind.speed);
+    }
+    for (let i = start + 24; i < 32; i++) {
+        day4wind.push(data.list[i].wind.speed);
+    }
+    for (let i = 31 + start; i < 40; i++) {
+        day5wind.push(data.list[i].wind.speed);
+    }
+
+    console.log("this is average wind3 " + average(day3wind));
+
+    console.log("this is average wind4 " + average(day4wind));
+
+    console.log("this is average wind5 " + average(day5wind));
+
+    updateFiveDay(data, start);
+
+
+}
+
+function updateFiveDay(weather, start, day1max, day1min, day1wind, day1humidity) {
+
+    // day1DateO.textContent = make listlater;
+    day1IconO.src = `https://openweathermap.org/img/wn/${weather.list[0].weather.icon}@2x.png`;
+    day1Desc.textContent = weather.list[start].weather.description;
+    day1maxTemp.textContent = Math.floor(day1max);
+    day1minTemp.textContent = Math.floor(day1min);
+    day1Wind.textContent = Math.floor(average(day1wind));
+    day1Humidity.textContent = Math.floor(average(day1humidity));
+
+   
 }
 
 search.addEventListener('keydown', function (event) {
@@ -326,13 +413,13 @@ favStar.addEventListener('click', function (e) {
 
 
 //Scroll effect
-accordionItems.forEach((el) => {
-    el.addEventListener('shown.bs.collapse', (e) => {
-        var scrollOffset = acc.scrollTop + el.parentNode.offsetTop
-        acc.scroll({
-            top: scrollOffset,
-            left: 0,
-            behavior: 'smooth'
-        })
-    })
-})
+// accordionItems.forEach((el) => {
+//     el.addEventListener('shown.bs.collapse', (e) => {
+//         var scrollOffset = acc.scrollTop + el.parentNode.offsetTop
+//         acc.scroll({
+//             top: scrollOffset,
+//             left: 0,
+//             behavior: 'smooth'
+//         })
+//     })
+// })
